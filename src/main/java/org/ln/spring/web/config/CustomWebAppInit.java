@@ -14,7 +14,7 @@ public class CustomWebAppInit extends
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 		super.onStartup(servletContext);
-		
+
 		FilterRegistration.Dynamic encodingFilter = servletContext.addFilter("encodingFilter", CharacterEncodingFilter.class);
         
 		encodingFilter.setInitParameter("encoding", "UTF-8");
@@ -24,7 +24,7 @@ public class CustomWebAppInit extends
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { MainConfiguration.class };
+		return new Class<?>[] { SecurityConfig.class };
 	}
 
 	@Override

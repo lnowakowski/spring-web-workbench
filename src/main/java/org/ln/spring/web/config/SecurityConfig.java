@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	};
-	
+
 	@Bean
 	public SessionRegistry sessionRegistry() {
 		return new SessionRegistryImpl();
@@ -34,10 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//		http.sessionManagement().sessionAuthenticationStrategy(new ConcurrentSessionControlAuthenticationStrategy(sessionRegistry()));
-		http.authorizeRequests().antMatchers("/form**").authenticated().and();
-		http.httpBasic().realmName("TEST");
-//		http.anonymous();
+		// http.sessionManagement().sessionAuthenticationStrategy(new
+		// ConcurrentSessionControlAuthenticationStrategy(sessionRegistry()));
+		http.authorizeRequests().antMatchers("/form**").authenticated().and()
+				.httpBasic().realmName("Spring Security").and().anonymous();
 	}
 
 	@Override

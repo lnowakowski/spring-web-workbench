@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
-import org.hibernate.exception.ConstraintViolationException;
 import org.ln.spring.web.dto.SuperItemBuilder;
 import org.ln.spring.web.jpa.entities.SuperItem;
 import org.ln.spring.web.service.TestService;

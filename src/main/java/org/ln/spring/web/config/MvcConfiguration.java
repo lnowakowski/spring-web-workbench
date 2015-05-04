@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "org.ln.spring.web")
-@Import({/*SecurityConfig.class,*/ AopConfig.class, DataSourceConfig.class})
+@Import({AopConfig.class, DataSourceConfig.class})
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	@Override
 	public void configureDefaultServletHandling(

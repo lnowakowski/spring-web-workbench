@@ -16,7 +16,7 @@ public class SimpleRestController {
 	private final Logger log = LoggerFactory.getLogger(getClass());
 	
 	@ResponseBody 
-	@Secured("hasRole('ADMIN')")
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/user/{id}", produces = "application/json")
 	public User handleTest(@PathVariable("id") int userId, Model model, HttpSession session) {
 		model.addAttribute("userId", userId);

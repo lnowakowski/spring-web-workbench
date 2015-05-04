@@ -42,8 +42,8 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-                    <li><a href="${mainUrl}">Home</a></li>
-                    <li class="active"><a href="${mainUrl}form">Form</a></li>
+					<li><a href="${mainUrl}">Home</a></li>
+					<li class="active"><a href="${mainUrl}form">Form</a></li>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
@@ -97,18 +97,21 @@
 				</div>
 			</div>
 		</form:form>
-		<c:forEach items="${items}" var="it">
-			<div class="table">
-				<div class="row">
-					<c:url value="/form/edit/${it.id}" var="editUrl" />
-					<c:url value="/form/delete/${it.id}" var="deleteUrl" />
-					<a href="${editUrl}"><code>${it.name}</code> <small><fmt:formatDate
-								pattern="yyyy-MM-dd HH:mm:ss" value="${it.created}" /></small> (ID: <b><fmt:formatNumber
-								pattern="####" minIntegerDigits="4" value="${it.id}" /></b>) </a> <a href="${deleteUrl}"><span
-						class="glyphicon glyphicon-remove"></span></a>
-				</div>
-			</div>
-		</c:forEach>
+
+		<c:if test="${not empty items}">
+			<ul>
+				<c:forEach items="${items}" var="it">
+					<li>
+						<c:url value="/form/edit/${it.id}" var="editUrl" />
+						<c:url value="/form/delete/${it.id}" var="deleteUrl" />
+						<a href="${editUrl}"><code>${it.name}</code> <small><fmt:formatDate
+									pattern="yyyy-MM-dd HH:mm:ss" value="${it.created}" /></small> (ID: <b><fmt:formatNumber
+									pattern="####" minIntegerDigits="4" value="${it.id}" /></b>) </a> <a
+							href="${deleteUrl}"><span class="glyphicon glyphicon-remove"></span></a>
+					</li>
+				</c:forEach>
+			</ul>
+		</c:if>
 	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

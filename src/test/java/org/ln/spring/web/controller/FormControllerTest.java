@@ -2,19 +2,14 @@ package org.ln.spring.web.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder.*;
 import static org.mockito.Mockito.*;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import java.net.URI;
 import java.util.Arrays;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.ln.spring.web.config.MainConfiguration;
 import org.ln.spring.web.config.MvcConfiguration;
 import org.ln.spring.web.dto.SuperItemBuilder;
 import org.ln.spring.web.jpa.entities.SuperItem;
@@ -22,22 +17,20 @@ import org.ln.spring.web.service.TestService;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(loader = AnnotationConfigWebContextLoader.class, classes = {
-		MainConfiguration.class, MvcConfiguration.class })
+	MvcConfiguration.class
+})
 public class FormControllerTest {
 	private MockMvc mockMvc;
 
